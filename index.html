@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sejin Kim &mdash; KIAS</title>
+<meta name="description" content="Sejin Kim, Research Fellow at the Center for AI and Natural Sciences, Korea Institute for Advanced Study (KIAS). Research on AI for gauge/gravity duality, holography, and string theory." />
+<meta name="author" content="Sejin Kim" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink:         #1a1a1a;
+    --ink-soft:    #4a4a4a;
+    --ink-mute:    #737373;
+    --rule:        #e6e6e6;
+    --rule-soft:   #f0f0f0;
+    --bg:          #fefefe;
+    --accent:      #7a1f1f;
+    --accent-soft: #a33737;
+    --max:         760px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: "Crimson Pro", "Source Serif Pro", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+  }
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 56px 28px 96px;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  a:hover {
+    color: var(--accent-soft);
+    border-bottom-color: var(--accent-soft);
+  }
+
+  /* --- Header --- */
+  header.hero {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+  }
+  .hero h1 {
+    font-family: "Crimson Pro", serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .hero .role {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+    margin: 0 0 4px;
+  }
+  .hero .affil {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: var(--ink-mute);
+    margin: 0 0 18px;
+  }
+  .hero .links {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .hero .links a {
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero .links a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* --- Navigation --- */
+  nav.toc {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 0 48px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  nav.toc a {
+    color: var(--ink-mute);
+    border-bottom: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+  nav.toc a:hover { color: var(--accent); }
+
+  /* --- Sections --- */
+  section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  h2 {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+    font-weight: 600;
+    margin: 0 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin: 28px 0 12px;
+  }
+  p { margin: 0 0 14px; }
+
+  /* --- About --- */
+  .about p { color: var(--ink); }
+  .interests {
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: #fafafa;
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+  .interests strong {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  /* --- Publications --- */
+  ol.pubs {
+    list-style: none;
+    counter-reset: pub;
+    padding: 0;
+    margin: 0;
+  }
+  ol.pubs li {
+    counter-increment: pub;
+    position: relative;
+    padding: 14px 0 14px 40px;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 16.5px;
+    line-height: 1.55;
+  }
+  ol.pubs li:last-child { border-bottom: none; }
+  ol.pubs li::before {
+    content: counter(pub);
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 28px;
+    text-align: right;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+    font-variant-numeric: tabular-nums;
+  }
+  .pub-title {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .pub-authors {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+  }
+  .pub-authors .me { font-style: normal; font-weight: 600; color: var(--ink); }
+  .pub-venue {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--ink-mute);
+    display: block;
+    margin-top: 4px;
+  }
+  .pub-venue .arxiv {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    padding: 1px 6px;
+    background: #f4ecec;
+    color: var(--accent);
+    border-radius: 3px;
+    margin-left: 2px;
+  }
+  .pub-venue .arxiv:hover {
+    background: var(--accent);
+    color: #fff;
+    border-bottom: none;
+  }
+
+  /* --- Timeline (CV) --- */
+  .timeline { margin: 0; padding: 0; list-style: none; }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 16px;
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline .when {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .timeline .what { color: var(--ink); }
+  .timeline .what .primary { font-weight: 500; }
+  .timeline .what .secondary {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .timeline .what ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .timeline .what ul li {
+    display: list-item;
+    padding: 2px 0;
+    border: none;
+    grid-template-columns: none;
+  }
+
+  /* --- Talks --- */
+  .talks-year {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .talks-year:last-child { border-bottom: none; }
+  .talks-year .year {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    padding-top: 2px;
+  }
+  .talks-year ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .talks-year ul li {
+    padding: 3px 0;
+    font-size: 15.5px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .talks-year .talk-title { font-weight: 500; }
+  .talks-year .talk-venue {
+    font-family: "Inter", sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* --- Contact --- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 14px 20px;
+    font-size: 16px;
+  }
+  .contact-grid dt {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    padding-top: 4px;
+  }
+  .contact-grid dd {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .contact-grid dd a {
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  .contact-grid dd a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    color: var(--ink-mute);
+    text-align: center;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 600px) {
+    .wrap { padding: 40px 20px 64px; }
+    .hero h1 { font-size: 32px; }
+    .timeline li,
+    .talks-year,
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .timeline .when,
+    .talks-year .year { padding-top: 0; font-size: 11px; }
+    nav.toc { gap: 14px; font-size: 12px; }
+    ol.pubs li { padding-left: 32px; font-size: 16px; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    /* Kept light for academic consistency; remove this block to enable dark mode. */
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Sejin Kim</h1>
+    <p class="role">Research Fellow &middot; Center for AI and Natural Sciences</p>
+    <p class="affil">Korea Institute for Advanced Study (KIAS), Seoul</p>
+    <div class="links">
+      <a href="mailto:sejin@kias.re.kr">sejin@kias.re.kr</a>
+      <a href="https://orcid.org/0000-0003-1176-4199" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://inspirehep.net/authors/1859869" target="_blank" rel="noopener">INSPIRE-HEP</a>
+      <a href="https://github.com/power817" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <a href="#about">About</a>
+    <a href="#publications">Publications</a>
+    <a href="#talks">Talks</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="about">
+    <h2>About</h2>
+    <p>
+      I am a research fellow at the <a href="https://www.kias.re.kr/" target="_blank" rel="noopener">Korea Institute for Advanced Study (KIAS)</a>, affiliated with the Center for AI and Natural Sciences. My research lies at the interface of <em>theoretical high-energy physics</em> and <em>machine learning</em>, where I use modern neural architectures &mdash; in particular transformer models &mdash; to attack inverse problems in the AdS/CFT correspondence.
+    </p>
+    <p>
+      Broadly, I am interested in what holography can teach us about strongly coupled quantum matter, and conversely how data-driven methods can uncover dual geometries, reconstruct bulk spacetimes from boundary data, and probe phase structure in models of holographic superconductivity. Earlier in my career I worked on perturbative holographic renormalization, supersymmetric Janus solutions, and axion phenomenology.
+    </p>
+    <p>
+      Before joining KIAS, I was a senior researcher at Kookmin University (2022&ndash;2025) and at GIST (2021&ndash;2022), and a visiting graduate researcher at CERN in 2019. I earned my Ph.D. in Physics from Kyung Hee University in 2021.
+    </p>
+    <div class="interests">
+      <strong>Research interests</strong>
+      Generative AI &middot; Machine Learning &middot; Inverse Problems &middot; Holography &middot; AdS/CFT &middot; Gauge/Gravity Duality &middot; String Theory &middot; Supergravity
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <h3>Journal Articles</h3>
+    <ol class="pubs">
+      <li>
+        <span class="pub-authors"><span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;Learning the Inverse Ryu&ndash;Takayanagi Formula with Transformers&rdquo;</span>
+        <span class="pub-venue">
+          JHEP 04, 128 (2026) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2511.06387" target="_blank" rel="noopener">arXiv:2511.06387</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">C. Park, <span class="me">Sejin Kim</span>, and J. H. Lee,</span>
+        <span class="pub-title">&ldquo;Holography Transformer&rdquo;</span>
+        <span class="pub-venue">
+          2025 &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2311.01724" target="_blank" rel="noopener">arXiv:2311.01724</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors"><span class="me">Sejin Kim</span>, K. K. Kim, and Y. Seo,</span>
+        <span class="pub-title">&ldquo;Phase Diagram from Nonlinear Interaction between Superconducting Order and Density: Toward Data-Based Holographic Superconductor&rdquo;</span>
+        <span class="pub-venue">
+          JHEP 02, 077 (2025) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2410.06523" target="_blank" rel="noopener">arXiv:2410.06523</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">K. K. Kim, <span class="me">Sejin Kim</span>, and Y. Seo,</span>
+        <span class="pub-title">&ldquo;Construction of Superconducting Dome and Emergence of Quantum Critical Region in Holography&rdquo;</span>
+        <span class="pub-venue">
+          Phys. Rev. D 110, 086005 (2024) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2312.06321" target="_blank" rel="noopener">arXiv:2312.06321</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">K. K. Kim, <span class="me">Sejin Kim</span>, J. H. Lee, C. Park, and Y. Seo,</span>
+        <span class="pub-title">&ldquo;End of the World Perspective to BCFT&rdquo;</span>
+        <span class="pub-venue">
+          Eur. Phys. J. C 84, 530 (2024) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2309.13624" target="_blank" rel="noopener">arXiv:2309.13624</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">C. Park, <span class="me">Sejin Kim</span>, and J. H. Lee,</span>
+        <span class="pub-title">&ldquo;Holographic two-point functions in medium&rdquo;</span>
+        <span class="pub-venue">
+          Mod. Phys. Lett. A 39, 2450004 (2024) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2212.01214" target="_blank" rel="noopener">arXiv:2212.01214</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">C. Park, C.-O. Hwang, K. Cho, and <span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;Dual Geometry of Entanglement Entropy via Deep Learning&rdquo;</span>
+        <span class="pub-venue">
+          Phys. Rev. D 106, 106017 (2022) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2205.04445" target="_blank" rel="noopener">arXiv:2205.04445</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;The Hamilton&ndash;Jacobi equation and holographic renormalization group flows on sphere&rdquo;</span>
+        <span class="pub-venue">
+          JHEP 10, 068 (2020) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2006.16727" target="_blank" rel="noopener">arXiv:2006.16727</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">J. E. Kim, <span class="me">Sejin Kim</span>, S. Nam, and M. Shim,</span>
+        <span class="pub-title">&ldquo;Jarlskog determinant and data on flavor matrices&rdquo;</span>
+        <span class="pub-venue">
+          Mod. Phys. Lett. A 35, 2050261 (2020) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/1907.12247" target="_blank" rel="noopener">arXiv:1907.12247</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">J. E. Kim and <span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;On the progenitor quark mass matrix&rdquo;</span>
+        <span class="pub-venue">
+          J. Korean Phys. Soc. 77, 10&ndash;16 (2020) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2004.04789" target="_blank" rel="noopener">arXiv:2004.04789</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;Re-visiting supersymmetric Janus solutions: a perturbative construction&rdquo;</span>
+        <span class="pub-venue">
+          Chin. Phys. C 44, 073104 (2020) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2001.06789" target="_blank" rel="noopener">arXiv:2001.06789</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">P. H. Frampton, J. E. Kim, <span class="me">Sejin Kim</span>, and S. Nam,</span>
+        <span class="pub-title">&ldquo;Tetrahedral A<sub>4</sub> Symmetry in Anti-SU(5) GUT&rdquo;</span>
+        <span class="pub-venue">
+          Phys. Rev. D 101, 055022 (2020) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/2001.02954" target="_blank" rel="noopener">arXiv:2001.02954</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;A perturbative study of holographic mABJM theory&rdquo;</span>
+        <span class="pub-venue">
+          Phys. Lett. B 797, 134837 (2019) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/1904.09465" target="_blank" rel="noopener">arXiv:1904.09465</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;Perturbative solutions of &#x1D4A9;=1* holography on S<sup>4</sup>&rdquo;</span>
+        <span class="pub-venue">
+          JHEP 07, 169 (2019) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/1904.02038" target="_blank" rel="noopener">arXiv:1904.02038</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-authors">J. E. Kim and <span class="me">Sejin Kim</span>,</span>
+        <span class="pub-title">&ldquo;&lsquo;Invisible&rsquo; QCD axion rolling through the QCD phase transition&rdquo;</span>
+        <span class="pub-venue">
+          Phys. Lett. B 783, 357&ndash;363 (2018) &middot;
+          <a class="arxiv" href="https://arxiv.org/abs/1804.05173" target="_blank" rel="noopener">arXiv:1804.05173</a>
+        </span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="talks">
+    <h2>Selected Talks</h2>
+
+    <div class="talks-year">
+      <div class="year">2025</div>
+      <ul>
+        <li>
+          <span class="talk-title">&ldquo;AI-Based Solutions to the Inverse Problem in Holography&rdquo;</span>
+          <span class="talk-venue">International Workshop on Machine Learning for Quantum Fields and Geometry, UNIST</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="talks-year">
+      <div class="year">2024</div>
+      <ul>
+        <li>
+          <span class="talk-title">&ldquo;Superconductor and Neural Network&rdquo;</span>
+          <span class="talk-venue">Quantum Geometry and Duality: AI and Theoretical Physics, APCTP</span>
+        </li>
+        <li>
+          <span class="talk-title">&ldquo;Transformer Models in Theoretical Physics&rdquo;</span>
+          <span class="talk-venue">How to Use AI in Astrophysics Theory, KASI</span>
+        </li>
+        <li>
+          <span class="talk-title">&ldquo;Searching Holographic Superconductor&rdquo;</span>
+          <span class="talk-venue">7th International Conference on Holography and String Theory, Duy Tan University, Da Nang, Vietnam</span>
+        </li>
+        <li>
+          <span class="talk-title">&ldquo;AI for Theoretical Physics&rdquo;</span>
+          <span class="talk-venue">KPS Spring Meeting, Daejeon</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="talks-year">
+      <div class="year">2023</div>
+      <ul>
+        <li>
+          <span class="talk-title">&ldquo;Prediction of Holographic Superconductor Dome&rdquo;</span>
+          <span class="talk-venue">KPS Fall Meeting, Changwon</span>
+        </li>
+        <li>
+          <span class="talk-title">&ldquo;Large Language Model and Physics&rdquo;</span>
+          <span class="talk-venue">Quantum Geometry and Duality: First Mini-Workshop, APCTP</span>
+        </li>
+        <li>
+          <span class="talk-title">&ldquo;AI for Theoretical Physics&rdquo;</span>
+          <span class="talk-venue">KPS Spring Meeting</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="talks-year">
+      <div class="year">2022</div>
+      <ul>
+        <li>
+          <span class="talk-title">&ldquo;Building Superconducting Dome from Holography&rdquo;</span>
+          <span class="talk-venue">KPS Fall Meeting, BEXCO, Busan</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="talks-year">
+      <div class="year">2021</div>
+      <ul>
+        <li>
+          <span class="talk-title">&ldquo;Reconstructing Holographic Geometry&rdquo;</span>
+          <span class="talk-venue">Quantum Geometry and Duality, APCTP (online)</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="talks-year">
+      <div class="year">2020</div>
+      <ul>
+        <li>
+          <span class="talk-title">&ldquo;The Hamilton&ndash;Jacobi Equation of Holographic Theory&rdquo;</span>
+          <span class="talk-venue">Strings, Branes and Gauge Theory, APCTP</span>
+        </li>
+        <li>
+          <span class="talk-title">&ldquo;Perturbation Approach for Mass-Deformed Theories&rdquo;</span>
+          <span class="talk-venue">New Frontiers in String and Field Theory</span>
+        </li>
+        <li>
+          <span class="talk-title">&ldquo;Perturbative Solution and Entanglement Entropy of 4D Janus&rdquo;</span>
+          <span class="talk-venue">KPS Spring Meeting</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="cv">
+    <h2>Curriculum Vitae</h2>
+
+    <h3>Employment</h3>
+    <ul class="timeline">
+      <li>
+        <span class="when">2025 &ndash; Now</span>
+        <span class="what">
+          <span class="primary">Research Fellow</span>, Center for AI and Natural Sciences
+          <span class="secondary">Korea Institute for Advanced Study (KIAS), Seoul, Korea</span>
+          <ul><li>AI for gauge/gravity duality.</li></ul>
+        </span>
+      </li>
+      <li>
+        <span class="when">2022 &ndash; 2025</span>
+        <span class="what">
+          <span class="primary">Senior Researcher</span>
+          <span class="secondary">Kookmin University (KMU), Seoul, Korea</span>
+          <ul>
+            <li>Gravity applications of theoretical methods.</li>
+            <li>Machine learning for holographic superconductors.</li>
+          </ul>
+        </span>
+      </li>
+      <li>
+        <span class="when">2021 &ndash; 2022</span>
+        <span class="what">
+          <span class="primary">Senior Researcher</span>
+          <span class="secondary">Gwangju Institute of Science and Technology (GIST), Korea</span>
+          <ul>
+            <li>Reconstruction of holographic geometry via deep learning.</li>
+            <li>Duals of defect theory and codimension-brane geometry.</li>
+            <li>First-passage and last-passage algorithms via Monte Carlo.</li>
+          </ul>
+        </span>
+      </li>
+      <li>
+        <span class="when">2019</span>
+        <span class="what">
+          <span class="primary">Graduate Student Dispatch Program</span>
+          <span class="secondary">CERN, Geneva, Switzerland</span>
+          <ul><li>Beyond the Standard Model and axion physics.</li></ul>
+        </span>
+      </li>
+    </ul>
+
+    <h3>Education</h3>
+    <ul class="timeline">
+      <li>
+        <span class="when">2015 &ndash; 2021</span>
+        <span class="what">
+          <span class="primary">Ph.D. in Physics</span>
+          <span class="secondary">Kyung Hee University, Korea</span>
+          <ul><li>Thesis: <em>Perturbative Solutions in Holographic Renormalization</em>.</li></ul>
+        </span>
+      </li>
+      <li>
+        <span class="when">2009 &ndash; 2015</span>
+        <span class="what">
+          <span class="primary">B.S. in Physics &middot; B.S. in Mathematics</span>
+          <span class="secondary">Kyung Hee University, Korea</span>
+        </span>
+      </li>
+    </ul>
+
+    <h3>Grants</h3>
+    <ul class="timeline">
+      <li>
+        <span class="when">2021 &ndash; 2022</span>
+        <span class="what">
+          <span class="primary">Principal Investigator</span>, Basic Science Research Program
+          <span class="secondary">Ministry of Education, Korea &middot; NRF-2021R1I1A1A01052821</span>
+          <ul><li>Holographic renormalization group flow via deep learning and perturbative methods.</li></ul>
+        </span>
+      </li>
+    </ul>
+
+    <h3>Skills</h3>
+    <ul class="timeline">
+      <li>
+        <span class="when">Mathematica</span>
+        <span class="what">
+          Developed a comprehensive package for general-relativity research; autonomous generation of holographic training data.
+          <span class="secondary">Wolfram Certificate: Machine Learning for Multiparadigm Data Science.</span>
+        </span>
+      </li>
+      <li>
+        <span class="when">Python</span>
+        <span class="what">
+          Custom neural-network layers aligned with theoretical constraints; transformer models (PyTorch / TensorFlow) trained on holographic data to predict dual theories.
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <dl class="contact-grid">
+      <dt>Email</dt>
+      <dd><a href="mailto:sejin@kias.re.kr">sejin@kias.re.kr</a></dd>
+
+      <dt>Office</dt>
+      <dd>Korea Institute for Advanced Study<br />85 Hoegi-ro, Dongdaemun-gu, Seoul 02455, Korea</dd>
+
+      <dt>ORCID</dt>
+      <dd><a href="https://orcid.org/0000-0003-1176-4199" target="_blank" rel="noopener">0000-0003-1176-4199</a></dd>
+
+      <dt>INSPIRE</dt>
+      <dd><a href="https://inspirehep.net/authors/1859869" target="_blank" rel="noopener">inspirehep.net/authors/1859869</a></dd>
+
+      <dt>GitHub</dt>
+      <dd><a href="https://github.com/power817" target="_blank" rel="noopener">github.com/power817</a></dd>
+    </dl>
+  </section>
+
+  <footer>
+    &copy; <span id="year">2026</span> Sejin Kim. Last updated April 2026.
+  </footer>
+
+</div>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
