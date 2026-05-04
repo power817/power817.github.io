@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Publications &mdash; Sejin Kim</title>
+<meta name="description" content="Peer-reviewed publications by Sejin Kim, KIAS. Print-friendly list with arXiv and journal links." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink:         #1a1a1a;
+    --ink-soft:    #4a4a4a;
+    --ink-mute:    #737373;
+    --rule:        #e6e6e6;
+    --rule-soft:   #f0f0f0;
+    --bg:          #fefefe;
+    --accent:      #7a1f1f;
+    --accent-soft: #a33737;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: "Crimson Pro", "Source Serif Pro", Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--bg);
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 28px 64px;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  a:hover {
+    color: var(--accent-soft);
+    border-bottom-color: var(--accent-soft);
+  }
+
+  /* --- Header --- */
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+  header h1 {
+    font-family: "Crimson Pro", serif;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.005em;
+    margin: 0 0 4px;
+  }
+  header .meta {
+    font-family: "Inter", sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    line-height: 1.6;
+  }
+  header .meta a {
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  header .meta a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* --- Toolbar (hidden on print) --- */
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    padding: 10px 14px;
+    background: #fafafa;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+  }
+  .toolbar .left { color: var(--ink-mute); }
+  .toolbar .left strong { color: var(--ink); font-weight: 600; }
+  .toolbar .actions { display: flex; gap: 8px; }
+  .toolbar button, .toolbar a.btn {
+    font-family: "Inter", sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .toolbar button:hover, .toolbar a.btn:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .toolbar a.btn { display: inline-block; }
+
+  /* --- Section heading --- */
+  h2.section {
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+    font-weight: 600;
+    margin: 0 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h2.section .count {
+    float: right;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: var(--ink-mute);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  /* --- Publications list --- */
+  ol.pubs {
+    list-style: none;
+    counter-reset: pub;
+    padding: 0;
+    margin: 0;
+  }
+  ol.pubs li {
+    counter-increment: pub;
+    position: relative;
+    padding: 12px 0 12px 36px;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+  ol.pubs li:last-child { border-bottom: none; }
+  ol.pubs li::before {
+    content: "[" counter(pub) "]";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+  .pub-title { color: var(--ink); font-style: italic; font-weight: 400; }
+  .pub-authors { color: var(--ink-soft); }
+  .pub-authors .me {
+    font-weight: 700;
+    color: var(--ink);
+    font-style: normal;
+  }
+  .pub-venue {
+    font-family: "Inter", sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    display: block;
+    margin-top: 3px;
+  }
+  .pub-venue .arxiv {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    padding: 1px 6px;
+    background: #f4ecec;
+    color: var(--accent);
+    border-radius: 3px;
+    margin-left: 2px;
+    border-bottom: none;
+  }
+  .pub-venue .arxiv:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  footer {
+    margin-top: 44px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+  }
+  footer a {
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--rule);
+  }
+  footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* --- Mobile --- */
+  @media (max-width: 600px) {
+    .wrap { padding: 32px 18px 48px; }
+    header h1 { font-size: 24px; }
+    ol.pubs li { font-size: 14.5px; padding-left: 32px; }
+    .toolbar { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* --- Print: optimize for clean A4/Letter PDF --- */
+  @media print {
+    @page {
+      size: Letter;
+      margin: 0.7in 0.75in;
+    }
+    body {
+      font-size: 10.5pt;
+      line-height: 1.4;
+      color: #000;
+      background: #fff;
+    }
+    .wrap {
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .toolbar { display: none; }                 /* hide buttons */
+    a {
+      color: #000;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    .pub-venue .arxiv {
+      background: transparent;
+      color: #000;
+      padding: 0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9pt;
+    }
+    /* Show URL after arXiv links */
+    .pub-venue a.arxiv::after {
+      content: "";
+    }
+    header {
+      padding-bottom: 10pt;
+      margin-bottom: 14pt;
+      border-bottom: 0.5pt solid #888;
+    }
+    header h1 { font-size: 18pt; }
+    header .meta { font-size: 9pt; color: #444; }
+    h2.section {
+      font-size: 9pt;
+      letter-spacing: 0.12em;
+      color: #444;
+      margin-bottom: 8pt;
+    }
+    h2.section .count { color: #888; }
+    ol.pubs li {
+      font-size: 10pt;
+      padding: 6pt 0 6pt 28pt;
+      border-bottom: 0.25pt solid #ddd;
+      page-break-inside: avoid;
+    }
+    ol.pubs li::before {
+      top: 6pt;
+      font-size: 9pt;
+      color: #444;
+    }
+    .pub-venue {
+      font-size: 9pt;
+      color: #555;
+    }
+    footer {
+      margin-top: 16pt;
+      padding-top: 8pt;
+      font-size: 8pt;
+      color: #888;
+      border-top: 0.25pt solid #ccc;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Sejin Kim &mdash; Publications</h1>
+    <div class="meta">
+      Research Fellow &middot; Center for AI and Natural Sciences &middot; Korea Institute for Advanced Study (KIAS)<br />
+      <a href="mailto:sejin@kias.re.kr">sejin@kias.re.kr</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://orcid.org/0000-0003-1176-4199" target="_blank" rel="noopener">ORCID 0000-0003-1176-4199</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://inspirehep.net/authors/1859869" target="_blank" rel="noopener">INSPIRE-HEP</a>
+      &nbsp;&middot;&nbsp;
+      <a href="index.html">power817.github.io</a>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="left">
+      <strong>Tip:</strong> Print this page to save as a clean PDF (Cmd/Ctrl + P &rarr; Save as PDF).
+    </div>
+    <div class="actions">
+      <button type="button" onclick="window.print()">Save as PDF</button>
+      <a class="btn" href="index.html">&larr; Home</a>
+    </div>
+  </div>
+
+  <h2 class="section">
+    Publications
+    <span class="count">15 articles &middot; reverse chronological</span>
+  </h2>
+
+  <ol class="pubs">
+    <li>
+      <span class="pub-authors"><span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;Learning the Inverse Ryu&ndash;Takayanagi Formula with Transformers&rdquo;,</span>
+      <span class="pub-venue">
+        JHEP <strong>04</strong>, 128 (2026) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2511.06387" target="_blank" rel="noopener">arXiv:2511.06387</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">C. Park, <span class="me">Sejin Kim</span>, and J. H. Lee,</span>
+      <span class="pub-title">&ldquo;Holography Transformer&rdquo;,</span>
+      <span class="pub-venue">
+        Mod. Phys. Lett. A <strong>41</strong>, 2650046 (2026) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2311.01724" target="_blank" rel="noopener">arXiv:2311.01724</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors"><span class="me">Sejin Kim</span>, K. K. Kim, and Y. Seo,</span>
+      <span class="pub-title">&ldquo;Phase Diagram from Nonlinear Interaction between Superconducting Order and Density: Toward Data-Based Holographic Superconductor&rdquo;,</span>
+      <span class="pub-venue">
+        JHEP <strong>02</strong>, 077 (2025) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2410.06523" target="_blank" rel="noopener">arXiv:2410.06523</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">K. K. Kim, <span class="me">Sejin Kim</span>, and Y. Seo,</span>
+      <span class="pub-title">&ldquo;Construction of Superconducting Dome and Emergence of Quantum Critical Region in Holography&rdquo;,</span>
+      <span class="pub-venue">
+        Phys. Rev. D <strong>110</strong>, 086005 (2024) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2312.06321" target="_blank" rel="noopener">arXiv:2312.06321</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">K. K. Kim, <span class="me">Sejin Kim</span>, J. H. Lee, C. Park, and Y. Seo,</span>
+      <span class="pub-title">&ldquo;End of the World Perspective to BCFT&rdquo;,</span>
+      <span class="pub-venue">
+        Eur. Phys. J. C <strong>84</strong>, 530 (2024) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2309.13624" target="_blank" rel="noopener">arXiv:2309.13624</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">C. Park, <span class="me">Sejin Kim</span>, and J. H. Lee,</span>
+      <span class="pub-title">&ldquo;Holographic two-point functions in medium&rdquo;,</span>
+      <span class="pub-venue">
+        Mod. Phys. Lett. A <strong>39</strong>, 2450004 (2024) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2212.01214" target="_blank" rel="noopener">arXiv:2212.01214</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">C. Park, C.-O. Hwang, K. Cho, and <span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;Dual Geometry of Entanglement Entropy via Deep Learning&rdquo;,</span>
+      <span class="pub-venue">
+        Phys. Rev. D <strong>106</strong>, 106017 (2022) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2205.04445" target="_blank" rel="noopener">arXiv:2205.04445</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;The Hamilton&ndash;Jacobi Equation and Holographic Renormalization Group Flows on Sphere&rdquo;,</span>
+      <span class="pub-venue">
+        JHEP <strong>10</strong>, 068 (2020) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2006.16727" target="_blank" rel="noopener">arXiv:2006.16727</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">J. E. Kim, <span class="me">Sejin Kim</span>, S. Nam, and M. Shim,</span>
+      <span class="pub-title">&ldquo;Jarlskog determinant and data on flavor matrices&rdquo;,</span>
+      <span class="pub-venue">
+        Mod. Phys. Lett. A <strong>35</strong>, 2050261 (2020) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/1907.12247" target="_blank" rel="noopener">arXiv:1907.12247</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">J. E. Kim and <span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;On the progenitor quark mass matrix&rdquo;,</span>
+      <span class="pub-venue">
+        J. Korean Phys. Soc. <strong>77</strong>, 10&ndash;16 (2020) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2004.04789" target="_blank" rel="noopener">arXiv:2004.04789</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;Re-visiting Supersymmetric Janus Solutions: A Perturbative Construction&rdquo;,</span>
+      <span class="pub-venue">
+        Chin. Phys. C <strong>44</strong>, 073104 (2020) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2001.06789" target="_blank" rel="noopener">arXiv:2001.06789</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">P. H. Frampton, J. E. Kim, <span class="me">Sejin Kim</span>, and S. Nam,</span>
+      <span class="pub-title">&ldquo;Tetrahedral A<sub>4</sub> Symmetry in Anti-SU(5) GUT&rdquo;,</span>
+      <span class="pub-venue">
+        Phys. Rev. D <strong>101</strong>, 055022 (2020) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2001.02954" target="_blank" rel="noopener">arXiv:2001.02954</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;A perturbative study of holographic mABJM theory&rdquo;,</span>
+      <span class="pub-venue">
+        Phys. Lett. B <strong>797</strong>, 134837 (2019) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/1904.09465" target="_blank" rel="noopener">arXiv:1904.09465</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">N. Kim and <span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;Perturbative solutions of &#x1D4A9;=1* holography on S<sup>4</sup>&rdquo;,</span>
+      <span class="pub-venue">
+        JHEP <strong>07</strong>, 169 (2019) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/1904.02038" target="_blank" rel="noopener">arXiv:1904.02038</a>
+      </span>
+    </li>
+    <li>
+      <span class="pub-authors">J. E. Kim and <span class="me">Sejin Kim</span>,</span>
+      <span class="pub-title">&ldquo;&lsquo;Invisible&rsquo; QCD axion rolling through the QCD phase transition&rdquo;,</span>
+      <span class="pub-venue">
+        Phys. Lett. B <strong>783</strong>, 357&ndash;363 (2018) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/1804.05173" target="_blank" rel="noopener">arXiv:1804.05173</a>
+      </span>
+    </li>
+  </ol>
+
+  <footer>
+    <span>Last updated <span id="updated">May 2026</span></span>
+    <span><a href="index.html">&larr; back to homepage</a></span>
+  </footer>
+
+</div>
+<script>
+  // Auto-update "Last updated" with current month/year on each visit
+  const m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const d = new Date();
+  document.getElementById("updated").textContent = m[d.getMonth()] + " " + d.getFullYear();
+</script>
+</body>
+</html>
