@@ -116,11 +116,11 @@
   section { margin-bottom: 56px; scroll-margin-top: 24px; }
   h2 {
     font-family: "Inter", sans-serif;
-    font-size: 12px;
+    font-size: 13.5px;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--ink-mute);
-    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 700;
     margin: 0 0 20px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--rule);
@@ -315,6 +315,46 @@
     border-bottom-color: var(--accent);
   }
 
+  /* --- Training & Certifications --- */
+  ul.creds { list-style: none; margin: 0; padding: 0; }
+  ul.creds li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 22px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  ul.creds li:last-child { border-bottom: none; }
+  .cred-year {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+    padding-top: 3px;
+    font-variant-numeric: tabular-nums;
+  }
+  .cred-title {
+    display: block;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 16.5px;
+    line-height: 1.4;
+  }
+  .cred-meta {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+  }
+  .cred-meta a {
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .cred-meta a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
   /* --- Contact --- */
   .contact-grid {
     display: grid;
@@ -361,12 +401,14 @@
     .hero h1 { font-size: 32px; }
     .timeline li,
     .talks-year,
-    .contact-grid {
+    .contact-grid,
+    ul.creds li {
       grid-template-columns: 1fr;
       gap: 4px;
     }
     .timeline .when,
-    .talks-year .year { padding-top: 0; font-size: 11px; }
+    .talks-year .year,
+    .cred-year { padding-top: 0; font-size: 11px; }
     nav.toc { gap: 14px; font-size: 12px; }
     ol.pubs li { padding-left: 32px; font-size: 16px; }
   }
@@ -397,6 +439,7 @@
     <a href="#talks">Talks</a>
     <a href="#lectures">Lectures</a>
     <a href="#organizing">Organizing</a>
+    <a href="#training">Training</a>
     <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -680,6 +723,26 @@
     </div>
   </section>
 
+  <section id="training">
+    <h2>Training &amp; Certifications</h2>
+    <ul class="creds">
+      <li>
+        <span class="cred-year">2026</span>
+        <span class="cred-body">
+          <span class="cred-title">The 17th KIAS CAC Summer School on Artificial Intelligence &amp; Parallel Computing</span>
+          <span class="cred-meta">Summer School &middot; Korea Institute for Advanced Study (KIAS), Seoul &middot; 22&ndash;26 June 2026</span>
+        </span>
+      </li>
+      <li>
+        <span class="cred-year">2021</span>
+        <span class="cred-body">
+          <span class="cred-title">Machine Learning for Multiparadigm Data Science</span>
+          <span class="cred-meta">Certification &middot; <a href="https://www.wolfram.com/wolfram-u/" target="_blank" rel="noopener">Wolfram U</a> &middot; Daily Study Group &middot; August 2021</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+
   <section id="cv">
     <h2>Curriculum Vitae</h2>
 
@@ -763,7 +826,6 @@
         <span class="when">Mathematica</span>
         <span class="what">
           Developed a comprehensive package for general-relativity research; autonomous generation of holographic training data.
-          <span class="secondary">Wolfram Certificate: Machine Learning for Multiparadigm Data Science.</span>
         </span>
       </li>
       <li>
@@ -796,7 +858,7 @@
   </section>
 
   <footer>
-    &copy; <span id="year">2026</span> Sejin Kim. Last updated April 2026.
+    &copy; <span id="year">2026</span> Sejin Kim. Last updated July 2026.
   </footer>
 
 </div>
