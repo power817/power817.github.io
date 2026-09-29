@@ -147,6 +147,8 @@
     line-height: 1.5;
   }
   ol.pubs li:last-child { border-bottom: none; }
+  ol.pubs.preprints li::before { content: "[P" counter(pub) "]"; }
+  ol.pubs + h2.section { margin-top: 36px; }
   ol.pubs li::before {
     content: "[" counter(pub) "]";
     position: absolute;
@@ -235,6 +237,7 @@
       margin: 0;
     }
     .toolbar { display: none; }                 /* hide buttons in print */
+    ol.pubs + h2.section { margin-top: 20pt; }
     a {
       color: var(--accent);
       text-decoration: none;
@@ -321,7 +324,23 @@
   </div>
 
   <h2 class="section">
-    Publications
+    Preprints
+    <span class="count">1 preprint</span>
+  </h2>
+
+  <ol class="pubs preprints">
+    <li>
+      <span class="pub-authors">N. Kim, <span class="me">Sejin Kim</span>, and H. Shin,</span>
+      <span class="pub-title">&ldquo;Numerical Sasaki&ndash;Einstein metrics and harmonic forms on del Pezzo links&rdquo;,</span>
+      <span class="pub-venue">
+        Preprint (2026) &middot;
+        <a class="arxiv" href="https://arxiv.org/abs/2609.25857" target="_blank" rel="noopener">arXiv:2609.25857</a>
+      </span>
+    </li>
+  </ol>
+
+  <h2 class="section">
+    Journal Articles
     <span class="count">15 articles &middot; reverse chronological</span>
   </h2>
 
